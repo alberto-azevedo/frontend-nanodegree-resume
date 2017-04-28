@@ -50,10 +50,10 @@ var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
+var HTMLonlineTitle = '<a class="online" href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
-var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+var HTMLonlineDates = '<div class="date-text online">%data%</div>';
+var HTMLonlineURL = '<br><a class="online" href="#">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
@@ -89,7 +89,10 @@ $(document).click(function(loc) {
   // your code goes here!
 });
 
-
+function formatHtmlTemplate(htmlText,subsText) {
+  //console.log(htmlText.replace("%data%",subsText));
+  return htmlText.replace("%data%",subsText);
+}
 
 /*
 This is the fun part. Here's where we generate the custom Google Map for the website.
@@ -144,7 +147,7 @@ function initializeMap() {
     work.jobs.forEach(function(job){
       locations.push(job.location);
     });
-
+    //console.log(locations);
     return locations;
   }
 
@@ -239,7 +242,7 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds

@@ -22,7 +22,7 @@ var bio = {
             bio.skills.forEach(function(skill) {
               $("#skills").append(formatHtmlTemplate(HTMLskills, skill));
               //console.log(skill);
-            })
+            });
         }
         //pic
         $("#header").prepend(formatHtmlTemplate(HTMLbioPic, bio.biopic));
@@ -100,14 +100,14 @@ var projects = {
             "dates": "1991, 1992",
             "description": "Desenvolvimento de um Gerenciador de Impressoras " +
               "para agencias SNA",
-            "images": "[http://lorempixel.com/400/200/]"
+            "images": ["http://lorempixel.com/400/200/"]
         },
         {
             "title": "SNA",
             "dates": "1992, 1993",
             "description": "Conversão da comunicação das agencias de BSC3 " +
               "para SNA",
-            "images": "[http://lorempixel.com/400/200/]"
+            "images": ["http://lorempixel.com/400/200/"]
         }
     ]
 };
@@ -124,6 +124,12 @@ projects.display = function() {
       var formattedProjectDescription = formatHtmlTemplate(HTMLprojectTitle,
         project.description);
       $(".project-entry:last").append(formattedProjectDescription);
+
+      // proj images
+      project.images.forEach(function(image) {
+        var formattedImage = formatHtmlTemplate(HTMLprojectImage, image);
+        $('.project-entry:last').append(formattedImage);
+      });
     });
 };
 
@@ -162,7 +168,7 @@ var education = {
         $("#education").append(HTMLonlineClasses);
         education.onlineCourses.forEach(function(onlineCourse) {
           var temp = formatHtmlTemplate(HTMLonlineTitle, onlineCourse.title);
-          school = temp + formatHtmlTemplate(HTMLonlineSchool,
+          var school = temp + formatHtmlTemplate(HTMLonlineSchool,
             onlineCourse.school);
           $("#education").append(school);
           $("#education").append(formatHtmlTemplate(HTMLonlineDates,

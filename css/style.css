@@ -27,6 +27,7 @@ h6 {
 h1 {
   font-size: 40px;
   color: #f5a623;
+  color: #1199c3;
   line-height: 48px;
   display: inline;
 }
@@ -116,6 +117,10 @@ a {
   color: #f5ae23;
 }
 
+.blue-text {
+  color: #1199c3;
+}
+
 .white-text {
   font-weight: bold;
   color: #fff;
@@ -131,9 +136,10 @@ a {
   background-color: #4a4a4a;
 }
 
-/* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-image: url(../images/blue-back.jpg);
+  opacity: 0.8;
+  background-size: cover;
 }
 
 .flex-box {

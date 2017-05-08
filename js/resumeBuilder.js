@@ -20,31 +20,31 @@ var bio = {
         if (bio.skills.length > 0) {
             $("#header").append(HTMLskillsStart);
             bio.skills.forEach(function(skill) {
-              $("#skills").append(formatHtmlTemplate(HTMLskills, skill));
-              //console.log(skill);
+                $("#skills").append(formatHtmlTemplate(HTMLskills, skill));
+                //console.log(skill);
             });
         }
         //pic
         $("#header").prepend(formatHtmlTemplate(HTMLbioPic, bio.biopic));
         //top contacts
         $("#topContacts").append(formatHtmlTemplate(HTMLmobile,
-          this.contacts.mobile));
+            this.contacts.mobile));
         $("#topContacts").append(formatHtmlTemplate(HTMLemail,
-          this.contacts.email));
+            this.contacts.email));
         $("#topContacts").append(formatHtmlTemplate(HTMLgithub,
-          this.contacts.github));
+            this.contacts.github));
         $("#topContacts").append(formatHtmlTemplate(HTMLlocation,
-          this.contacts.location));
+            this.contacts.location));
 
         //footer contacts -
         $("#footerContacts").append(formatHtmlTemplate(HTMLmobile,
-          this.contacts.mobile));
+            this.contacts.mobile));
         $("#footerContacts").append(formatHtmlTemplate(HTMLemail,
-          this.contacts.email));
+            this.contacts.email));
         $("#footerContacts").append(formatHtmlTemplate(HTMLgithub,
-          this.contacts.github));
+            this.contacts.github));
         $("#footerContacts").append(formatHtmlTemplate(HTMLlocation,
-          this.contacts.location));
+            this.contacts.location));
 
         //generic info
         var formattedRole = HTMLheaderRole.replace("%data%", "Web developer");
@@ -75,20 +75,20 @@ var work = {
     "position": "Analista",
     "display": function() {
         work.jobs.forEach(function(job) {
-          //console.log(job.employer);
-          $("#workExperience").append(HTMLworkStart);
-          var formattedEmployer = formatHtmlTemplate(HTMLworkEmployer,
-            job.employer);
-          var formattedTitle = formatHtmlTemplate(HTMLworkTitle,job.title);
-          var formattedEmployerTitle = formattedEmployer + formattedTitle;
-          $(".work-entry:last").append(formattedEmployerTitle);
+            //console.log(job.employer);
+            $("#workExperience").append(HTMLworkStart);
+            var formattedEmployer = formatHtmlTemplate(HTMLworkEmployer,
+                job.employer);
+            var formattedTitle = formatHtmlTemplate(HTMLworkTitle, job.title);
+            var formattedEmployerTitle = formattedEmployer + formattedTitle;
+            $(".work-entry:last").append(formattedEmployerTitle);
 
-          var formattedDates = formatHtmlTemplate(HTMLworkDates, job.dates);
-          $(".work-entry:last").append(formattedDates);
+            var formattedDates = formatHtmlTemplate(HTMLworkDates, job.dates);
+            $(".work-entry:last").append(formattedDates);
 
-          var formattedDescription = formatHtmlTemplate(HTMLworkDescription,
-            job.description);
-          $(".work-entry:last").append(formattedDescription);
+            var formattedDescription = formatHtmlTemplate(HTMLworkDescription,
+                job.description);
+            $(".work-entry:last").append(formattedDescription);
         });
     }
 };
@@ -99,14 +99,14 @@ var projects = {
             "title": "GerIMP",
             "dates": "1991, 1992",
             "description": "Desenvolvimento de um Gerenciador de Impressoras " +
-              "para agencias SNA",
+                "para agencias SNA",
             "images": ["http://lorempixel.com/400/200/"]
         },
         {
             "title": "SNA",
             "dates": "1992, 1993",
             "description": "Conversão da comunicação das agencias de BSC3 " +
-              "para SNA",
+                "para SNA",
             "images": ["http://lorempixel.com/400/200/"]
         }
     ]
@@ -114,22 +114,22 @@ var projects = {
 
 projects.display = function() {
     projects.projects.forEach(function(project) {
-      //console.log(project.title);
-      $("#projects").append(HTMLprojectStart);
-      var formattedProjectTitle = formatHtmlTemplate(HTMLprojectTitle,
-        project.title);
-      $(".project-entry:last").append(formattedProjectTitle);
-      var formattedDates = formatHtmlTemplate(HTMLprojectTitle, project.dates);
-      $(".project-entry:last").append(formattedDates);
-      var formattedProjectDescription = formatHtmlTemplate(HTMLprojectTitle,
-        project.description);
-      $(".project-entry:last").append(formattedProjectDescription);
+        //console.log(project.title);
+        $("#projects").append(HTMLprojectStart);
+        var formattedProjectTitle = formatHtmlTemplate(HTMLprojectTitle,
+            project.title);
+        $(".project-entry:last").append(formattedProjectTitle);
+        var formattedDates = formatHtmlTemplate(HTMLprojectTitle, project.dates);
+        $(".project-entry:last").append(formattedDates);
+        var formattedProjectDescription = formatHtmlTemplate(HTMLprojectTitle,
+            project.description);
+        $(".project-entry:last").append(formattedProjectDescription);
 
-      // proj images
-      project.images.forEach(function(image) {
-        var formattedImage = formatHtmlTemplate(HTMLprojectImage, image);
-        $('.project-entry:last').append(formattedImage);
-      });
+        // proj images
+        project.images.forEach(function(image) {
+            var formattedImage = formatHtmlTemplate(HTMLprojectImage, image);
+            $('.project-entry:last').append(formattedImage);
+        });
     });
 };
 
@@ -155,26 +155,26 @@ var education = {
 
         $("#education").append(HTMLschoolStart);
         education.schools.forEach(function(school) {
-        $(".education-entry:last").append(formatHtmlTemplate(HTMLschoolName,
-          school.name));
-        $(".education-entry:last").append(formatHtmlTemplate(HTMLschoolDates,
-          school.dates));
-        $(".education-entry:last").append(formatHtmlTemplate(HTMLschoolLocation,
-          school.location));
-        $(".education-entry:last").append(formatHtmlTemplate(HTMLschoolMajor,
-          school.majors));
+            $(".education-entry:last").append(formatHtmlTemplate(HTMLschoolName,
+                school.name));
+            $(".education-entry:last").append(formatHtmlTemplate(HTMLschoolDates,
+                school.dates));
+            $(".education-entry:last").append(formatHtmlTemplate(HTMLschoolLocation,
+                school.location));
+            $(".education-entry:last").append(formatHtmlTemplate(HTMLschoolMajor,
+                school.majors));
         });
 
         $("#education").append(HTMLonlineClasses);
         education.onlineCourses.forEach(function(onlineCourse) {
-          var temp = formatHtmlTemplate(HTMLonlineTitle, onlineCourse.title);
-          var school = temp + formatHtmlTemplate(HTMLonlineSchool,
-            onlineCourse.school);
-          $("#education").append(school);
-          $("#education").append(formatHtmlTemplate(HTMLonlineDates,
-             onlineCourse.dates));
-          $("#education").append(formatHtmlTemplate(HTMLonlineURL,
-            onlineCourse.url));
+            var temp = formatHtmlTemplate(HTMLonlineTitle, onlineCourse.title);
+            var school = temp + formatHtmlTemplate(HTMLonlineSchool,
+                onlineCourse.school);
+            $("#education").append(school);
+            $("#education").append(formatHtmlTemplate(HTMLonlineDates,
+                onlineCourse.dates));
+            $("#education").append(formatHtmlTemplate(HTMLonlineURL,
+                onlineCourse.url));
         });
     }
 };
